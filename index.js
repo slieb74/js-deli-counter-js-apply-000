@@ -4,6 +4,21 @@ var line = [];
 var katzDeliLine = [];
 //create counter variable to be used later
 let i = 0; 
+let counter = 0 
+function takeANumber(katzDeliLine){
+  counter++
+  katzDeliLine.push(counter)
+  return `Welcome. You're ticket number ${counter}.`
+}
+
+// takeANumber(katzDeliLine) => "Welcome. You're ticket number 1" [1]
+// takeANumber(katzDeliLine) => "Welcome. You're ticket number 2" [1, 2]
+// nowServing(katzDeliLine) => "Currently serving: 1" [2]
+// takeANumber(katzDeliLine) => "Welcome. You're ticket number 3" [2, 3]
+
+//nowServing [3]
+//nowServing []
+// takeANumber [4]
 
 
 //function accepts current line of people and name of new person on line
@@ -40,14 +55,14 @@ function currentLine(katzDeliLine){
   //if there are people on line
   else {
    //adds the first person on line to the array with their line number in front
-   line.push(`${i+1}. ${katzDeliLine[i]}`)
+   //line.push(`${i+1}. ${katzDeliLine[i]}`)
    //repeats this process to add all additional people on line to the end of the array
    //neccessary to maintain the format 1. name 2. name ... with proper spacing 
-   for (let i = 1; i < katzDeliLine.length; i++) {
+   for (let i = 0; i < katzDeliLine.length; i++) {
     //adds new person to end of line array 
-    line.push(` ${i+1}. ${katzDeliLine[i]}`)
+    line.push(`${i+1}. ${katzDeliLine[i]}`)
     }
   //returns numbered list of people on line
-  return `The line is currently: ${line}`
+  return `The line is currently: ${line.join(", ")}`
   }
 } 
